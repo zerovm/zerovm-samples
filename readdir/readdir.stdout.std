@@ -1,0 +1,15 @@
+struct dirent{
+	offset d_ino   =0
+	offset d_off   =8
+	offset d_reclen=16
+	offset d_name  =19
+}, sizeof = 280
+listdir(/dev)
+d_ino=18, d_off=24, d_reclen=24, d_name=test, directory  
+d_ino=12, d_off=32, d_reclen=32, d_name=stdout, FIFO       
+d_ino=13, d_off=32, d_reclen=32, d_name=stderr, FIFO       
+d_ino=14, d_off=32, d_reclen=32, d_name=debug, FIFO       
+listdir(/)
+d_ino=2, d_off=24, d_reclen=24, d_name=dev, directory  
+listdir(.)
+d_ino=2, d_off=24, d_reclen=24, d_name=dev, directory  

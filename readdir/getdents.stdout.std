@@ -1,0 +1,17 @@
+struct dirent{
+	offset d_ino   =0
+	offset d_off   =8
+	offset d_reclen=16
+	offset d_name  =19
+}, sizeof = 280
+syscall_listdir(/dev)
+--------------- nread=88 ---------------
+i-node#  file type  d_reclen  d_off   d_name
+      18  directory    24         24                 test 
+      12  FIFO         32         32               stdout 
+      13  FIFO         32         32               stderr 
+--------------- nread=32 ---------------
+i-node#  file type  d_reclen  d_off   d_name
+      14  FIFO         32         32                debug 
+syscall_listdir(/)
+syscall_listdir(.)

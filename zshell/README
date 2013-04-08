@@ -1,0 +1,11 @@
+
+--------------------------------------------
+Zshell
+--------------------------------------------
+{DOCPATH}
+
+run LUA, SQLITE, PYTHON scripts from single application, first line of
+script must contains char #lua / #sqlite / #python identifier.
+Also required:
+- compiled zpython
+

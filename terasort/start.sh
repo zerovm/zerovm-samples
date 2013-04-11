@@ -45,9 +45,9 @@ cat ${ZVM_REPORT}
 rm data/temp.sum -f
 COUNTER=1
 while [  $COUNTER -le $REDUCE_LAST ]; do
-    ./valsort -t4 -o data/"$COUNTER"result.sum data/"$COUNTER"sorted.dat
+    ./gensort-1.5/valsort -t4 -o data/"$COUNTER"result.sum data/"$COUNTER"sorted.dat
     cat data/"$COUNTER"result.sum >> data/temp.sum
     let COUNTER=COUNTER+1 
 done
-./valsort -s data/temp.sum > data/out.sum
+./gensort-1.5/valsort -s data/temp.sum > data/out.sum
 diff data/in.sum data/out.sum

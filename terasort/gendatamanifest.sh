@@ -4,7 +4,7 @@ SCRIPT=$(readlink -f "$0")
 SCRIPT_PATH=`dirname "$SCRIPT"`/
 echo $SCRIPT_PATH 
 
-SINGLE_NODE_INPUT_RECORDS_COUNT=10000000
+SINGLE_NODE_INPUT_RECORDS_COUNT=1000000
 
 #Generate from template
 MAP_FIRST=1
@@ -26,14 +26,12 @@ while [  $COUNTER -le $MAP_LAST ]; do
     sed s@{SEQUENTIAL_ID}@$SEQUENTIAL_ID@g | \
     sed s@r_map"$COUNTER"-@/dev/in/@g > manifest/map"$COUNTER".manifest 
 #gendata
-    ./gensort -c -t4 -s -b$DATA_OFFSET -a $SINGLE_NODE_INPUT_RECORDS_COUNT data/"$COUNTER"input.txt 2> data/"$COUNTER"source.sum
+    ./gensort-1.5/gensort -c -t4 -s -b$DATA_OFFSET -a $SINGLE_NODE_INPUT_RECORDS_COUNT data/"$COUNTER"input.txt 2> data/"$COUNTER"source.sum
 #increment
     let SEQUENTIAL_ID=SEQUENTIAL_ID+1
     let COUNTER=COUNTER+1 
     let DATA_OFFSET=DATA_OFFSET+SINGLE_NODE_INPUT_RECORDS_COUNT
 done
-cat data/*source.sum > data/in.sum
-./valsort -s data/in.sum > data/in.sum
 
 COUNTER=$REDUCE_FIRST
 while [  $COUNTER -le $REDUCE_LAST ]; do

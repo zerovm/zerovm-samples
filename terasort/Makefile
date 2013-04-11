@@ -3,7 +3,7 @@ CFLAGS+=-std=c99 -g
 
 LDFLAGS+=-lmapreduce -lnetworking
 
-all: createdirs clean map.nexe reduce.nexe
+all: createdirs clean map.nexe reduce.nexe gensort
 	./gendatamanifest.sh
 
 map.nexe: obj/map.o obj/user_implem.o
@@ -24,6 +24,12 @@ obj/user_implem.o: src/user_implem.c src/user_implem.h
 createdirs:
 	chmod u+rwx gendatamanifest.sh start.sh
 	@mkdir -p obj log data
+
+gensort:
+	if test ! -d gensort-1.5 ; then \
+		tar xf gensort-1.5.tar.gz ;\
+	fi
+	$(MAKE) -C gensort-1.5
 
 clean: 
 	@rm -f obj/*.o

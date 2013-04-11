@@ -49,5 +49,5 @@ while [  $COUNTER -le $REDUCE_LAST ]; do
     cat data/"$COUNTER"result.sum >> data/temp.sum
     let COUNTER=COUNTER+1 
 done
-./gensort-1.5/valsort -s data/temp.sum > data/out.sum
-diff data/in.sum data/out.sum
+#./gensort-1.5/valsort -s data/temp.sum > data/out.sum
+#diff data/in.sum data/out.sum

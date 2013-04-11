@@ -1,5 +1,5 @@
 include ../Makefile.env
-CFLAGS+=-std=c99 -g
+CFLAGS+=-std=c99 -g -I.
 
 LDFLAGS+=-lmapreduce -lnetworking
 

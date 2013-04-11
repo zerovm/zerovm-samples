@@ -9,7 +9,7 @@ LDFLAGS+=-llua -lsqlite3
 
 LDFLAGS+=-Lzpython -lpython3.2m -lm -ldl -lutil
 
-all: createdirs zpython zshell.nexe
+all: createdirs zshell.nexe
 
 .PHONY: zpython
 
@@ -25,6 +25,10 @@ createdirs:
 	chmod u+rwx genmanifest.sh run_lua_samples.sh run_sqlite_samples.sh run_python_samples.sh python.sh \
 run_python_samples.sh
 	@mkdir -p log
+	@if test ! -d zpython ; then \
+		echo "Error: Please get zpython from https://github.com/zerovm/zpython"; \
+		exit 1; \
+	fi
 
 clean: 
 	@rm -f *.o
@@ -32,6 +36,5 @@ clean:
 	@find -name "*.log" | xargs rm -f
 	@find -name "*.manifest" | xargs rm -f
 	@rm -f zshell.nexe
-	$(MAKE) -C zpython clean
 
 

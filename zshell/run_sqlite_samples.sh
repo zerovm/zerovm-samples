@@ -7,7 +7,7 @@ echo Run sqlite samples
 READ_ONLY_INPUT_CHANNEL=sqlite/data/test_sqlite.db
 
 #use /dev/tarimage channel and real tar archive will be mounted
-TAR_IMAGE=sqlite/data/tarfs.tar
+TAR_IMAGE=mounts/tarfs.tar
 
 #read database from input channel
 NAME="select"

@@ -34,7 +34,7 @@ while [  $COUNTER -lt $REDUCE_LAST ]; do
 done
 
 #run last reduce node
-time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest >> ${ZVM_REPORT}
+/usr/bin/time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest >> ${ZVM_REPORT}
 
 
 ../ns_stop.sh

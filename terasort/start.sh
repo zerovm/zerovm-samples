@@ -1,5 +1,5 @@
 #!/bin/bash
-source ${ZRT_ROOT}/run.env
+source ../run.env
 
 rm data/*.res -f
 rm log/* -f
@@ -15,7 +15,7 @@ REDUCE_LAST=4
 #calculate number of nodes for whole cluster
 let NUMBER_OF_NODES=${MAP_LAST}+${REDUCE_LAST}
 
-${ZRT_ROOT}/ns_start.sh ${NUMBER_OF_NODES}
+../ns_start.sh ${NUMBER_OF_NODES}
 
 rm ${ZVM_REPORT} -f
 time
@@ -37,7 +37,7 @@ done
 time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest >> ${ZVM_REPORT}
 
 
-${ZRT_ROOT}/ns_stop.sh
+../ns_stop.sh
 sleep 1
 cat ${ZVM_REPORT}
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-source ${ZRT_ROOT}/run.env
+source ../run.env
 
 echo Run sqlite samples
 

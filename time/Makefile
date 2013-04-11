@@ -1,4 +1,4 @@
-include $(ZRT_ROOT)/Makefile.env
+include ../Makefile.env
 CFLAGS+=-O2
 NAME=time
 TIMESTAMP=$(shell date +%s)

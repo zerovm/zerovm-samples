@@ -1,5 +1,5 @@
-include $(ZRT_ROOT)/Makefile.env
-CFLAGS+=-O2
+include ../Makefile.env
+CFLAGS+=-O2 -msse4.1
 
 NAME_1=generator.uint32_t
 NAME_2=sort_uint_proper_with_args

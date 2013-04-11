@@ -1,5 +1,5 @@
 #!/bin/bash
-source ${ZRT_ROOT}/run.env
+source ../run.env
 ./genmanifest.sh
 echo ---------------------------------------------------- generating
 time ${SETARCH} ${ZEROVM} -Mgenerator.manifest -v2

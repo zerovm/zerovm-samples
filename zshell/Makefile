@@ -1,4 +1,4 @@
-include $(ZRT_ROOT)/Makefile.env
+include ../Makefile.env
 
 CFLAGS+=-std=c99 -g -DDEBUG
 

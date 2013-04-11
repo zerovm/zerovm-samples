@@ -2,7 +2,7 @@
 
 SCRIPT=$(readlink -f "$0")
 SCRIPT_PATH=`dirname "$SCRIPT"`
-source ${ZRT_ROOT}/run.env
+source ../run.env
 
 #Generate from template
 sed s@{ABS_PATH}@$SCRIPT_PATH/@g readdir.manifest.template  > readdir.manifest

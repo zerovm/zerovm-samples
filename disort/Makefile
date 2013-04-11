@@ -1,7 +1,7 @@
-include $(ZRT_ROOT)/Makefile.env
+include ../Makefile.env
 
 #DEBUG=-g
-CFLAGS +=-std=c99 -O2 $(DEBUG)
+CFLAGS +=-I. -std=c99 -O2 $(DEBUG)
 LDFLAGS+=-lnetworking
 
 GENNODE=generator.uint32_t

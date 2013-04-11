@@ -25,8 +25,9 @@ createdirs:
 	chmod u+rwx genmanifest.sh run_lua_samples.sh run_sqlite_samples.sh run_python_samples.sh python.sh \
 run_python_samples.sh
 	@mkdir -p log
-	@if test ! -d zpython ; then \
-		echo "Error: Please get zpython from https://github.com/zerovm/zpython"; \
+	@if test ! -f zpython/Makefile ; then \
+		echo "Error: Please git clone zpython from https://github.com/zerovm/zpython"; \
+		echo "       And install it by running: make zpython"; \
 		exit 1; \
 	fi
 

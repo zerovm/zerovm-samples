@@ -14,7 +14,6 @@ set confirm off
 set output-radix 16
 b NaClCreateMainThread
 r
+add-symbol-file /home/yaroslav/git/zerovm-samples/tarimage/tarimage.nexe 0x440a00020000
 b main
-add-symbol-file /home/zvm/zerovm-samples/tarimage/tarimage.nexe 0x440a00020000
-c
-d br
+b get_config_structure

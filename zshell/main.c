@@ -149,8 +149,6 @@ int main(int argc, char **argv){
     case ESqliteScriptType:{
 	/*load script from stdin*/
 	int bufsize = LoadFileToBuffer(fdscript, &buffer );
-	/*run script*/
-	errcode = run_lua_buffer_script ( buffer, bufsize, (const char **)argv );
 
 	if ( argc < 3 ){
 	    fprintf( stderr, "Error:SQLite required cmd line "

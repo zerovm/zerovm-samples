@@ -5,7 +5,7 @@
 ./python.sh python/scripts/tpickle.py
  
 
-# source ${ZRT_ROOT}/run.env
+# source ../run.env
 
 # echo Run python samples
 

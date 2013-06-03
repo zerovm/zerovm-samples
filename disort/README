@@ -7,7 +7,7 @@ Distributed Sort
 1. Currently by default you can build and run sorting with 10 source and
 10 destination nodes; You can run Distributed sort folowing this, in
 terminal >
-cd $(ZRT_ROOT)/samples/disort
+cd ../samples/disort
 make
 ./disort.sh
 

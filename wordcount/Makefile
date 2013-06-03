@@ -1,5 +1,5 @@
-include $(ZRT_ROOT)/Makefile.env
-CFLAGS+=-std=c99 -g
+include ../Makefile.env
+CFLAGS+=-std=c99 -g -I.
 
 LDFLAGS+=-lmapreduce -lnetworking
 

@@ -16,9 +16,9 @@
 #include "user_implem.h"
 #include "mapreduce/map_reduce_lib.h"
 #include "defines.h"
-#include "elastic_mr_item.h"
-#include "buffered_io.h"
-#include "buffer.h"
+#include "mapreduce/elastic_mr_item.h"
+#include "mapreduce/buffered_io.h"
+#include "mapreduce/buffer.h"
 
 /*******************************************************************************
  * USER HASH*/

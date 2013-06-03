@@ -1,5 +1,5 @@
 #!/bin/bash
-source ${ZRT_ROOT}/run.env
+source ../run.env
 
 PREFIX_NAME="python_"
 NAME="hello"
@@ -8,7 +8,7 @@ SCRIPT_PATH_ON_REAL_FS="$1"
 OUTPUT_FILE="$1".stdout
 DATA_FILE=/dev/null
 LOG_FILE="$1".stderr.log
-COMMAND_LINE="/dev/stdin $2 $3 $4 $5 $6 $7"
+COMMAND_LINE="- $2 $3 $4 $5 $6 $7"
 NEW_MANIFEST="$1".manifest
 
 MANIFEST=manifest_template/zshell-python.manifest.template ./genmanifest.sh \

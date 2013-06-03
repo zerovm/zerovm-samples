@@ -1,4 +1,4 @@
-include $(ZRT_ROOT)/Makefile.env
+include ../Makefile.env
 NAME=cgioutput
 
 CFLAGS+=-g2

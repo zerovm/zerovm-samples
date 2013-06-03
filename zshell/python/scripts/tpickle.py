@@ -1,9 +1,9 @@
 #python
 import pickle
 import sys
-from io import StringIO
+from io import BytesIO
 
-src = StringIO()
+src = BytesIO()
 p = pickle.Pickler(src)
 
 def persistent_id(obj):
@@ -26,7 +26,7 @@ p.dump(i)
 
 datastream = src.getvalue()
 print(repr(datastream))
-dst = StringIO(datastream)
+dst = BytesIO(datastream)
 
 up = pickle.Unpickler(dst)
 

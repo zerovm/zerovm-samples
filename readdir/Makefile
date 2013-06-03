@@ -1,4 +1,4 @@
-include $(ZRT_ROOT)/Makefile.env
+include ../Makefile.env
 TIMESTAMP=1349019070
 NAME=readdir
 NAME2=getdents

@@ -1,5 +1,5 @@
 #!/bin/bash
-source ${ZRT_ROOT}/run.env
+source ../run.env
 
 rm data/*.res -f
 rm log/* -f
@@ -15,7 +15,7 @@ REDUCE_LAST=4
 #calculate number of nodes for whole cluster
 let NUMBER_OF_NODES=${MAP_LAST}+${REDUCE_LAST}
 
-${ZRT_ROOT}/ns_start.sh ${NUMBER_OF_NODES}
+../ns_start.sh ${NUMBER_OF_NODES}
 
 rm ${ZVM_REPORT} -f
 time
@@ -34,10 +34,10 @@ while [  $COUNTER -lt $REDUCE_LAST ]; do
 done
 
 #run last reduce node
-time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest >> ${ZVM_REPORT}
+/usr/bin/time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest >> ${ZVM_REPORT}
 
 
-${ZRT_ROOT}/ns_stop.sh
+../ns_stop.sh
 sleep 1
 cat ${ZVM_REPORT}
 
@@ -45,9 +45,9 @@ cat ${ZVM_REPORT}
 rm data/temp.sum -f
 COUNTER=1
 while [  $COUNTER -le $REDUCE_LAST ]; do
-    ./valsort -t4 -o data/"$COUNTER"result.sum data/"$COUNTER"sorted.dat
+    ./gensort-1.5/valsort -t4 -o data/"$COUNTER"result.sum data/"$COUNTER"sorted.dat
     cat data/"$COUNTER"result.sum >> data/temp.sum
     let COUNTER=COUNTER+1 
 done
-./valsort -s data/temp.sum > data/out.sum
-diff data/in.sum data/out.sum
+#./gensort-1.5/valsort -s data/temp.sum > data/out.sum
+#diff data/in.sum data/out.sum

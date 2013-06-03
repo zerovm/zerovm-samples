@@ -1,4 +1,4 @@
-include $(ZRT_ROOT)/Makefile.env
+include ${ZRT_ROOT}/Makefile.env
 
 NAME=tarimage
 

@@ -8,9 +8,9 @@ Channel = {ABS_PATH}stderr.data, /dev/stderr, 0, 0, 0, 999999, 999999
 Channel = {ABS_PATH}zrtdebug.data, /dev/debug, 0, 0, 0, 99999999, 99999999
 
 =====================================================================
-== inject tar archives contents into ZRT filesystem using fstab.conf
+== inject tar archives contents into ZRT filesystem using nvram file
 =====================================================================
-Channel = {ABS_PATH}mounts/fstab.conf, /dev/nvram, 0, 999999, 999999, 0, 0
+Channel = {ABS_PATH}nvram.conf, /dev/nvram, 0, 999999, 999999, 0, 0
 Channel = {ABS_PATH}mounts/tarimage.tar, /dev/mount/import, 1, 9999999, 9999999, 0, 0
 Channel = {ABS_PATH}mounts/exported.tar, /dev/mount/export, 2, 0, 0, 9999999, 9999999
 

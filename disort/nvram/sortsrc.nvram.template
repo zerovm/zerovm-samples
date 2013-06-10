@@ -1,0 +1,7 @@
+[env]
+name=SOURCE_NAME, value=src
+name=DEST_NAME,   value=dst
+name=MAN_NAME, 	  value=man
+
+[args]
+args=src-{NODEID} 5000000

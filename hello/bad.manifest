@@ -1,8 +1,0 @@
-Channel = /home/zvm/zrt/samples/hello/debug.log, /dev/debug, 0, 0, 0, 99999999, 99999999
-Channel = /dev/null, /dev/stdin, 0, 999999, 999999, 0, 0
-Channel = /home/zvm/zrt/samples/hello/stdout.data, /dev/stdout, 0, 0, 0, 999999, 999999
-Channel = /home/zvm/zrt/samples/hello/stderr.data, /dev/stderr, 0, 0, 0, 9999999, 9999999
-Version = 09082012
-Nexe = bad.nexe
-MemMax = 419430400
-Timeout = 50

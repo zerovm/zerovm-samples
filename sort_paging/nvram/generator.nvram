@@ -1,0 +1,5 @@
+[args]
+args=generator.nexe 16777216 random.dat
+
+[debug]
+verbosity=2

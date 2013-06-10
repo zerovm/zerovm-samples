@@ -5,6 +5,8 @@
 Channel = {ABS_PATH}unsorted.data, /dev/stdin, 0, 99999999, 99999999, 0, 0
 Channel = {ABS_PATH}sorted.data, /dev/stdout, 0, 0, 0, 99999999, 99999999
 Channel = {ABS_PATH}sort.stderr.log, /dev/stderr, 0, 0, 0, 99999999, 99999999
+Channel = {ABS_PATH}sort.zrt.log, /dev/debug, 0, 0, 0, 99999999, 99999999
+Channel = {ABS_PATH}nvram/sort.nvram, /dev/nvram, 0, 999999, 999999, 0, 0
 
 =====================================================================
 == switches for zerovm. some of them used to control nexe, some
@@ -16,4 +18,4 @@ NexeMax = 10000000
 ==MemMax=134217728
 MemMax=234217728
 Timeout=20
-CommandLine = 67108864
+

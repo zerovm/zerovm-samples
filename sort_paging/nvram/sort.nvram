@@ -1,0 +1,4 @@
+[args]
+args=sort.nexe 67108864
+[debug]
+verbosity=3

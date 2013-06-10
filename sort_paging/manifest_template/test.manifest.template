@@ -6,6 +6,7 @@ Channel = {ABS_PATH}sorted.data, /dev/stdin, 0, 99999999, 99999999, 0, 0
 Channel = {ABS_PATH}test.stdout.log, /dev/stdout, 0, 0, 0, 99999999, 99999999
 Channel = {ABS_PATH}test.zrt.log, /dev/debug, 0, 0, 0, 99999999, 99999999
 Channel = {ABS_PATH}test.stderr.log, /dev/stderr, 0, 0, 0, 99999999, 99999999
+Channel = {ABS_PATH}nvram/tester.nvram, /dev/nvram, 0, 99999999, 99999999, 0, 0
 
 =====================================================================
 == switches for zerovm. some of them used to control nexe, some
@@ -16,4 +17,4 @@ Nexe = {ABS_PATH}tester.uint32_t.nexe
 NexeMax = 10000000
 MemMax=134217728
 Timeout=20
-CommandLine = 67108864
+

@@ -21,7 +21,7 @@ clean:
 	@rm -f $(NAME).o
 	@rm -f log/*.log
 	@rm -f *.nexe
-	@rm -f *.manifest
+	@rm -f manifest/*.manifest
 	@rm -f nameservice.log
 
 

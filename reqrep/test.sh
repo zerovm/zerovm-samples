@@ -3,8 +3,8 @@ source ../run.env
 
 ../ns_start.sh 2
 
-${SETARCH} ${ZEROVM} -Mtest2.manifest &
-${SETARCH} ${ZEROVM} -Mtest1.manifest 
+${SETARCH} ${ZEROVM} -Mmanifest/test2.manifest &
+${SETARCH} ${ZEROVM} -Mmanifest/test1.manifest 
 
 sleep 1
 echo "############### test 1 #################"

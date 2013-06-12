@@ -34,10 +34,12 @@ gensort:
 clean: 
 	@rm -f obj/*.o
 	@rm -f log/*.log
+	@rm -f *.txt
 	@rm -f data/*.txt
 	@rm -f data/*.dat
 	@rm -f data/*.sum
 	@rm -f manifest/*.manifest	
+	@rm -f nvram/*.nvram
 	@rm -f *.nexe
 	@rm -f nameservice.log
 

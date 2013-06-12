@@ -1,0 +1,6 @@
+[env]
+name=MAP_NAME,       value=map
+name=REDUCE_NAME,    value=red
+
+[args]
+args=red-{NODEID}

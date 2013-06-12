@@ -1,0 +1,9 @@
+[env]
+#MAP_CHUNK_SIZE for terasort must be multiple on 100, it's simplify parsing of input
+name=MAP_NAME,       value=map
+name=REDUCE_NAME,    value=red
+name=MAP_CHUNK_SIZE, value=100485700
+
+[args]
+args=map-{NODEID}
+

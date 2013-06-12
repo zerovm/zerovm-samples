@@ -1,4 +1,4 @@
-include ../Makefile.env
+include ${ZRT_ROOT}/Makefile.env
 
 NAME=reqrep
 CFLAGS+=-std=c99

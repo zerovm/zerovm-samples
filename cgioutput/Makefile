@@ -1,12 +1,17 @@
-include ../Makefile.env
+include ${ZRT_ROOT}/Makefile.env
 NAME=cgioutput
 
-CFLAGS+=-g2
-
-all: $(NAME).o
+all: prepare $(NAME).o
 	$(CC) -o $(NAME).nexe $(NAME).o $(LDFLAGS)
-	@sed s@{ABS_PATH}@${CURDIR}/@g manifest.template | sed s@{NAME}@$(NAME)@g > $(NAME).manifest
-	$(SETARCH) $(ZEROVM) -M$(NAME).manifest -v4
+	TIMEOUT=4 \
+	CHANNELS_INCLUDE=channels.manifest.include \
+	ABS_PATH=$(CURDIR) \
+	NAME=$(NAME) ../template.sh ../manifest.template > $(NAME).manifest
+	SECONDS= ../template.sh ../nvram.template  > $(NAME).nvram
+	$(ZEROVM) -M$(NAME).manifest
+
+prepare:
+	chmod u+rwx ../template.sh
 
 clean:
-	@rm -f $(NAME).nexe $(NAME).manifest $(NAME).o *.log *.data
+	@rm -f *.nexe *.manifest *.nvram *.o *.log *.data *.null

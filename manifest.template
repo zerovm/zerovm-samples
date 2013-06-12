@@ -1,0 +1,13 @@
+{CHANNELS_INCLUDE}
+
+=====================================================================
+== switches for zerovm. some of them used to control nexe, some
+== for the internal zerovm needs
+=====================================================================
+Version = 09082012
+Nexe = {ABS_PATH}{NAME}.nexe
+MemMax=536870912
+NameServer = udp:127.0.0.1:54321
+Timeout={TIMEOUT}
+NodeName={SEQUENTIAL_ID}
+

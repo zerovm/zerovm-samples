@@ -1,11 +1,13 @@
-=====================================================================
-== i/o switches. full list. optional. some switches now meaningless,
-== placed here for completeness and future changes
-=====================================================================
+=======================================================================
+== Channels section intended to be used by template.sh and contains channels
+== description that must be added instead string {CHANNELS_INCLUDE} 
+== into generated manifest file based on manifest.template file
+
 Channel = /dev/null, /dev/stdin, 0, 99999999, 99999999, 0, 0
 Channel = {ABS_PATH}data/crc.data, /dev/stdout, 0, 0, 0, 9999, 9999
 ==Channel = {ABS_PATH}log/sortman.zrt.log, /dev/debug, 0, 0, 0, 999999999, 999999999
 Channel = {ABS_PATH}log/sortman.stderr.log, /dev/stderr, 0, 0, 0, 9999999, 9999999
+Channel = {ABS_PATH}nvram/sortman.nvram, /dev/nvram, 0, 999999, 9999999, 0, 0
 
 Channel = tcp:12:,  /dev/in/dst-1, 0, 99999999, 99999999, 0, 0
 Channel = tcp:13:,  /dev/in/dst-2, 0, 99999999, 99999999, 0, 0
@@ -39,17 +41,4 @@ Channel = tcp:8:,  /dev/out/src-7, 0, 0, 0, 99999999, 99999999
 Channel = tcp:9:,  /dev/out/src-8, 0, 0, 0, 99999999, 99999999
 Channel = tcp:10:, /dev/out/src-9, 0, 0, 0, 99999999, 99999999
 Channel = tcp:11:, /dev/out/src-10, 0, 0, 0, 99999999, 99999999
-
-Environment =SOURCE_NAME,src,DEST_NAME,dst,MAN_NAME,man
-
-=====================================================================
-== switches for zerovm. some of them used to control nexe, some
-== for the internal zerovm needs
-=====================================================================
-Version = 09082012
-Nexe = {ABS_PATH}nodeman.nexe
-MemMax=134217728
-CommandLine = 5000000
-NodeName=man,{SEQUENTIAL_ID}
-NameServer = udp:127.0.0.1:54321
-Timeout=100
+=======================================================================

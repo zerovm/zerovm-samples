@@ -1,1 +1,7 @@
 *.scp
+*~
+*.cproject
+*.o
+*.nexe
+*.a
+

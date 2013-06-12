@@ -1,7 +1,7 @@
 include ../Makefile.env
 
 #DEBUG=-g
-CFLAGS +=-I. -std=c99 -O2 $(DEBUG)
+CFLAGS +=-I. -Isrc -std=c99 -O2 $(DEBUG)
 LDFLAGS+=-lnetworking
 
 GENNODE=generator.uint32_t
@@ -10,10 +10,10 @@ SRCNODE=nodesrc
 DSTNODE=nodedst
 
 NEXES = $(GENNODE).nexe $(MANNODE).nexe $(SRCNODE).nexe $(DSTNODE).nexe
-GENNODE_OBJECTS = generator.uint32_t.o
-MANNODE_OBJECTS = comm.o bitonic_sort.o manager/main_man.o manager/histanlz.o manager/comm_man.o dsort.o sort.o
-SRCNODE_OBJECTS = comm.o source/comm_src.o source/main_src.o cpuid.o bitonic_sort.o dsort.o sort.o
-DSTNODE_OBJECTS = dest/main_dst.o dest/comm_dst.o comm.o dsort.o sort.o
+GENNODE_OBJECTS = src/generator.uint32_t.o
+MANNODE_OBJECTS = src/comm.o src/bitonic_sort.o src/manager/main_man.o src/manager/histanlz.o src/manager/comm_man.o src/dsort.o src/sort.o
+SRCNODE_OBJECTS = src/comm.o src/source/comm_src.o src/source/main_src.o src/cpuid.o src/bitonic_sort.o src/dsort.o src/sort.o
+DSTNODE_OBJECTS = src/dest/main_dst.o src/dest/comm_dst.o src/comm.o src/dsort.o src/sort.o
 
 all: cleanlog prepare $(NEXES) 
 
@@ -45,6 +45,7 @@ clean: cleanlog
 	@rm -f $(NEXES)
 	@rm -f $(GENNODE_OBJECTS) $(MANNODE_OBJECTS) $(SRCNODE_OBJECTS) $(DSTNODE_OBJECTS)
 	@rm -f manifest/*.manifest
+	@rm -f nvram/*.nvram
 	@rm -f data/*.data
 	@rm -f nameservice.log
 

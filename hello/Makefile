@@ -10,7 +10,7 @@ all: prepare $(NAME).o
 	NAME=$(NAME) \
 	CHANNELS_INCLUDE=channels.manifest.include \
 	../template.sh ../manifest.template > $(NAME).manifest
-	SECONDS= ../template.sh ../nvram.template  > $(NAME).nvram
+	../template.sh ../nvram.template  > $(NAME).nvram
 	$(ZEROVM) -M$(NAME).manifest
 	cat $(NAME).stdout.log
 

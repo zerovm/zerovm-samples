@@ -2,12 +2,12 @@
 source ../run.env
 ./genmanifest.sh
 echo ---------------------------------------------------- generating
-time ${SETARCH} ${ZEROVM} -Mgenerator.manifest -v2
+time ${SETARCH} ${ZEROVM} -Mmanifest/generator.manifest -v2
 cat generator.stderr.log
 echo ---------------------------------------------------- sorting
-time ${SETARCH} ${ZEROVM} -Msort.manifest -v2
+time ${SETARCH} ${ZEROVM} -Mmanifest/sort.manifest -v2
 cat sort.stderr.log
 echo ---------------------------------------------------- testing
-${SETARCH} ${ZEROVM} -Mtest.manifest -v2
+${SETARCH} ${ZEROVM} -Mmanifest/test.manifest -v2
 cat test.stderr.log
 

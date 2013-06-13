@@ -5,13 +5,17 @@ TIMESTAMP=$(shell date +%s)
 
 all: $(NAME).o
 	$(CC) -o $(NAME).nexe $(NAME).o $(LDFLAGS)
-#
-	@sed 's@{ABS_PATH}@${CURDIR}/@g;'\
-	's@{NAME}@$(NAME)@g;'\
-	's@\(Environment = .*\)TimeStamp,[^,]*\(.*\)@\1TimeStamp, ${TIMESTAMP}\2@;'\
-	  ../sample_manifest.template > $(NAME).manifest
-	$(SETARCH) $(ZEROVM) -M$(NAME).manifest
-	@cat time.stdout.std
+#genmanifest
+	TIMEOUT=5 \
+	ABS_PATH=$(CURDIR) \
+	NAME=$(NAME) \
+	CHANNELS_INCLUDE=channels.manifest.include \
+	../template.sh ../manifest.template > $(NAME).manifest
+#gennvram
+	SECONDS=1371117775 \
+	../template.sh  ../nvram.template > $(NAME).nvram
+	$(ZEROVM) -M$(NAME).manifest
+	@cat time.stdout.log
 
 clean:
-	@rm -f $(NAME).nexe $(NAME).o *.log *.std *.manifest
+	@rm -f $(NAME).nexe $(NAME).o *.log *.std *.manifest *.nvram

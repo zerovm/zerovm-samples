@@ -7,7 +7,7 @@ all: prepare $(NAME).o
 	CHANNELS_INCLUDE=channels.manifest.include \
 	ABS_PATH=$(CURDIR) \
 	NAME=$(NAME) ../template.sh ../manifest.template > $(NAME).manifest
-	SECONDS= ../template.sh ../nvram.template  > $(NAME).nvram
+	../template.sh ../nvram.template  > $(NAME).nvram
 	$(ZEROVM) -M$(NAME).manifest
 
 prepare:

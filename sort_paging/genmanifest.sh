@@ -1,13 +1,29 @@
 #!/bin/bash
 
 SCRIPT=$(readlink -f "$0")
-SCRIPT_PATH=`dirname "$SCRIPT"`
+CURDIR=`dirname "$SCRIPT"`
 
-#Generate from template
+#genmanifest
+NAME=generator.uint32_t
+TIMEOUT=20 \
+CHANNELS_INCLUDE=manifest/generator.channels.manifest.include \
+ABS_PATH=$CURDIR \
+NAME=$NAME \
+../template.sh ../manifest.template > manifest/generator.manifest
 
-sed s@{ABS_PATH}@$SCRIPT_PATH/@g manifest_template/generator.manifest.template > generator.manifest
-sed s@{ABS_PATH}@$SCRIPT_PATH/@g manifest_template/sort.manifest.template      > sort.manifest
-sed s@{ABS_PATH}@$SCRIPT_PATH/@g manifest_template/test.manifest.template      > test.manifest  
+#genmanifest
+NAME=sort_uint_proper_with_args
+TIMEOUT=20 \
+CHANNELS_INCLUDE=manifest/sort.channels.manifest.include \
+ABS_PATH=$CURDIR \
+NAME=$NAME \
+../template.sh ../manifest.template > manifest/sort.manifest
 
-
+#genmanifest
+NAME=tester.uint32_t
+TIMEOUT=20 \
+CHANNELS_INCLUDE=manifest/test.channels.manifest.include \
+ABS_PATH=$CURDIR \
+NAME=$NAME \
+../template.sh ../manifest.template > manifest/test.manifest
 

@@ -1,0 +1,7 @@
+[env]
+name=MAP_NAME,       value=map
+name=REDUCE_NAME,    value=red
+name=MAP_CHUNK_SIZE, value=10485760
+
+[args]
+args=map-{NODEID}

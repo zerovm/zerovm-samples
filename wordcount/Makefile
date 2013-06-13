@@ -29,7 +29,8 @@ clean:
 	@rm -f obj/*.o
 	@rm -f log/*.log
 	@rm -f data/*.res
-	@rm -f manifest/*.manifest	
+	@rm -f manifest/*.manifest
+	@rm -f nvram/*.nvram
 	@rm -f *.nexe
 	@rm -f nameservice.log
 

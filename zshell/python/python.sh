@@ -11,7 +11,10 @@ LOG_FILE="$1".stderr.log
 COMMAND_LINE="- $2 $3 $4 $5 $6 $7"
 NEW_MANIFEST="$1".manifest
 
-MANIFEST=manifest_template/zshell-python.manifest.template ./genmanifest.sh \
+MANIFEST=manifest/python.channels.manifest.include \
+NVRAM_TEMPLATE=nvram/python.nvram.template \
+NVRAM=nvram/python.nvram \
+./genmanifest.sh \
 ${SCRIPT_PATH_ON_REAL_FS} \
 ${OUTPUT_FILE} \
 ${DATA_FILE} \

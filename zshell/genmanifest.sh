@@ -32,14 +32,18 @@ else
     SED_4=s@$VAR_NAME_4@$SCRIPT_PATH/$4@g    
 fi
 
-#Generate manifest as output from template
+#write into nvram
+sed s@$VAR_NAME_5@"$5"@ $NVRAM_TEMPLATE > $NVRAM
 
-sed s@$VAR_NAME_1@$SCRIPT_PATH/$1@g $MANIFEST | \
+#Generate manifest as output from template
+TIMEOUT=100 \
+ABS_PATH=$SCRIPT_PATH \
+NAME=zshell \
+CHANNELS_INCLUDE=$MANIFEST \
+../template.sh ../manifest.template | \
+sed s@$VAR_NAME_1@$SCRIPT_PATH/$1@g | \
 sed s@$VAR_NAME_2@$SCRIPT_PATH/$2@g | \
 sed $SED_3 | \
 sed $SED_4 | \
-sed s@$VAR_NAME_5@"$5"@ | \
 sed s@{ABS_PATH}@$SCRIPT_PATH/@ | \
 sed s@{DEBUG_FILE_PATH}@$SCRIPT_PATH/log/$JOB_NAME.zrt.log@g
-
-

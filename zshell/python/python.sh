@@ -12,7 +12,7 @@ COMMAND_LINE="- $2 $3 $4 $5 $6 $7"
 NEW_MANIFEST="$1".manifest
 
 MANIFEST=manifest/python.channels.manifest.include \
-NVRAM_TEMPLATE=nvram/python.nvram.template \
+NVRAM_TEMPLATE=mounts/python/nvram.conf \
 NVRAM=nvram/python.nvram \
 ./genmanifest.sh \
 ${SCRIPT_PATH_ON_REAL_FS} \

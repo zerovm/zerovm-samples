@@ -22,6 +22,7 @@ zshell.nexe: src/pythonexec.o src/luaexec.o src/main.o src/sqlitequery.o
 	$(CC) -o zshell.nexe src/pythonexec.o src/luaexec.o src/main.o src/sqlitequery.o $(LDFLAGS)  
 
 createdirs:
+	mkdir -p nvram
 	chmod u+rwx ../template.sh
 	chmod u+rwx genmanifest.sh run_lua_samples.sh run_sqlite_samples.sh run_python_samples.sh run_python_samples.sh
 	chmod u+rwx python/python.sh lua/lua.sh sqlite/sqlite.sh sqlite/sqlite-cdr.sh 

@@ -6,8 +6,8 @@
 =====================================================================
 Version = 20130611
 Program = {ABS_PATH}{NAME}.nexe
-Memory = 4294967296
+Memory = 0x10000000, 0
 NameServer = udp:127.0.0.1:54321
 Timeout={TIMEOUT}
-NodeName={SEQUENTIAL_ID}
+Node={SEQUENTIAL_ID}
 

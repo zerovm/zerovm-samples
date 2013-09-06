@@ -22,6 +22,7 @@ time
 
 COUNTER=$MAP_FIRST
 while [  $COUNTER -le $MAP_LAST ]; do
+    echo ${SETARCH} ${ZEROVM} -Mmanifest/map$COUNTER.manifest
     ${SETARCH} ${ZEROVM} -Mmanifest/map$COUNTER.manifest >> ${ZVM_REPORT} &
     let COUNTER=COUNTER+1 
 done
@@ -29,11 +30,13 @@ done
 COUNTER=$REDUCE_FIRST
 #run reduce nodes -1 count
 while [  $COUNTER -lt $REDUCE_LAST ]; do
+    echo ${SETARCH} ${ZEROVM} -Mmanifest/reduce$COUNTER.manifest
     ${SETARCH} ${ZEROVM} -Mmanifest/reduce$COUNTER.manifest >> ${ZVM_REPORT} &
     let COUNTER=COUNTER+1 
 done
 
 #run last reduce node
+echo /usr/bin/time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest
 /usr/bin/time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest >> ${ZVM_REPORT}
 
 

@@ -20,6 +20,7 @@ COUNTER=$MAP_FIRST
 while [  $COUNTER -le $MAP_LAST ]; do
 #genmanifest
     NAME=map \
+    MEMORY=4294967296 \
     TIMEOUT=100 \
     NODEID=$COUNTER \
     ABS_PATH=$SCRIPT_PATH \
@@ -44,6 +45,7 @@ COUNTER=$REDUCE_FIRST
 while [  $COUNTER -le $REDUCE_LAST ]; do
 #genmanifest
     NAME=reduce \
+    MEMORY=4294967296 \
     TIMEOUT=100 \
     NODEID=$COUNTER \
     ABS_PATH=$SCRIPT_PATH \

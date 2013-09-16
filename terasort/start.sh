@@ -41,7 +41,12 @@ echo /usr/bin/time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest
 
 
 ../ns_stop.sh
-sleep 1
+
+for job in `jobs -p`
+do
+    wait $job
+done
+
 cat ${ZVM_REPORT}
 
 #test results

@@ -3,6 +3,7 @@
 name=MAP_NAME,       value=map
 name=REDUCE_NAME,    value=red
 name=MAP_CHUNK_SIZE, value=100485700
+#name=MAP_CHUNK_SIZE, value=1004857
 
 [args]
 args=map-{NODEID}

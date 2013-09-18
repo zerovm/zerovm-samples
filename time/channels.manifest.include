@@ -3,9 +3,9 @@
 == description that must be added instead string {CHANNELS_INCLUDE} 
 == into generated manifest file based on manifest.template file
 
-Channel = /dev/null, /dev/stdin, 0, 999999, 999999, 0, 0
-Channel = {ABS_PATH}{NAME}.stdout.log, /dev/stdout, 0, 0, 0, 999999, 999999
-Channel = {ABS_PATH}{NAME}.stderr.log, /dev/stderr, 0, 0, 0, 999999, 999999
-Channel = {ABS_PATH}{NAME}.zrtdebug.log, /dev/debug, 0, 0, 0, 9999999, 9999999
-Channel = {ABS_PATH}{NAME}.nvram, /dev/nvram, 0, 999999, 999999, 0, 0
+Channel = /dev/null, /dev/stdin, 0, 0, 999999, 999999, 0, 0
+Channel = {ABS_PATH}{NAME}.stdout.log, /dev/stdout, 0, 0, 0, 0, 999999, 999999
+Channel = {ABS_PATH}{NAME}.stderr.log, /dev/stderr, 0, 0, 0, 0, 999999, 999999
+Channel = {ABS_PATH}{NAME}.zrtdebug.log, /dev/debug, 0, 0, 0, 0, 9999999, 9999999
+Channel = {ABS_PATH}{NAME}.nvram, /dev/nvram, 0, 0, 999999, 999999, 0, 0
 =======================================================================

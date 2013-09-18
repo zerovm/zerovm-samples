@@ -1,0 +1,8 @@
+[fstab]
+channel=/dev/mount/root, mountpoint=/, access=ro
+
+[args]
+args=zshell {COMMAND_LINE}
+
+[debug]
+verbosity=1

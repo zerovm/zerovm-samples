@@ -3,14 +3,14 @@
 == description that must be added instead string {CHANNELS_INCLUDE} 
 == into generated manifest file based on manifest.template file
 
-Channel = {SCRIPT_FILE_PATH}, /dev/stdin, 0, 999999, 999999, 0, 0
-Channel = {OUTPUT_FILE_PATH}, /dev/stdout, 0, 0, 0, 999999, 999999
-Channel = {LOG_FILE_PATH}, /dev/stderr, 0, 0, 0, 9999999, 9999999
-Channel = {DATA_FILE_PATH}, /dev/input, 1, 999999, 999999, 0, 0
-Channel = {DEBUG_FILE_PATH}, /dev/debug, 0, 0, 0, 9999999, 9999999
+Channel = {SCRIPT_FILE_PATH}, /dev/stdin, 0, 0, 999999, 999999, 0, 0
+Channel = {OUTPUT_FILE_PATH}, /dev/stdout, 0, 0, 0, 0, 999999, 999999
+Channel = {LOG_FILE_PATH}, /dev/stderr, 0, 0, 0, 0, 9999999, 9999999
+Channel = {DATA_FILE_PATH}, /dev/input, 1, 0, 999999, 999999, 0, 0
+Channel = {DEBUG_FILE_PATH}, /dev/debug, 0, 0, 0, 0, 9999999, 9999999
 =====================================================================
 == Mounts files to ZRT filesystem
 
-Channel = {SCRIPT_FILE_PATH}.nvram, /dev/nvram, 0, 999999, 999999, 0, 0
-Channel = {ABS_PATH}mounts/tarfs.tar, /dev/mount/root, 0, 999999, 999999, 0, 0
+Channel = {SCRIPT_FILE_PATH}.nvram, /dev/nvram, 0, 0, 999999, 999999, 0, 0
+Channel = {ABS_PATH}mounts/tarfs.tar, /dev/mount/root, 0, 0, 999999, 999999, 0, 0
 =======================================================================

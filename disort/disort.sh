@@ -15,20 +15,20 @@ DST_LAST=10
 
 COUNTER=$SRC_FIRST
 while [  $COUNTER -le $SRC_LAST ]; do
-    ${SETARCH} ${ZEROVM} -Mmanifest/sortsrc"$COUNTER".manifest ${ZVM_VERBOSITY} \
+    ${ZEROVM} manifest/sortsrc"$COUNTER".manifest ${ZVM_VERBOSITY} \
 	> log/zerovm.sortsrc"$COUNTER".log &
     let COUNTER=COUNTER+1 
 done
 
 COUNTER=$DST_FIRST
 while [  $COUNTER -le $DST_LAST ]; do
-    ${SETARCH} ${ZEROVM} -Mmanifest/sortdst"$COUNTER".manifest ${ZVM_VERBOSITY} \
+    ${ZEROVM} manifest/sortdst"$COUNTER".manifest ${ZVM_VERBOSITY} \
 	> log/zerovm.sortdst"$COUNTER".log &
     let COUNTER=COUNTER+1 
 done
 
 date > /tmp/time
-${SETARCH} ${ZEROVM} -Mmanifest/sortman.manifest ${ZVM_VERBOSITY}
+${ZEROVM} manifest/sortman.manifest ${ZVM_VERBOSITY}
 date >> /tmp/time
 
 cat log/sortman.stderr.log

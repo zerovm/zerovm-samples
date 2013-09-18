@@ -12,7 +12,7 @@ int main(int argc, char **argv)
   struct tm *date_time;
 
   /* call zrt_gettimeofday() indirectly */
-  fprintf(stdout, "timestamp from manifest = %ld\n"
+  fprintf(stdout, "current timestamp = %ld\n"
       "which means..\n", (long)time(&cur_time));
 
   /* infere and print the current time and date */

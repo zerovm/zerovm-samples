@@ -12,7 +12,7 @@ all: $(NAME).o
 	CHANNELS_INCLUDE=channels.manifest.include \
 	../template.sh ../manifest.template > $(NAME).manifest
 #gennvram
-	SECONDS=1371117775 \
+	SECONDS=$(TIMESTAMP) \
 	../template.sh  ../nvram.template > $(NAME).nvram
 	$(ZEROVM) -M$(NAME).manifest
 	@cat time.stdout.log

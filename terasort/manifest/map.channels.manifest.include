@@ -4,7 +4,7 @@
 == into generated manifest file based on manifest.template file
 
 Channel = {ABS_PATH}data/{NODEID}input.txt, /dev/stdin, 0, 0, 9999999, 9999999999, 0, 0
-==Channel = {ABS_PATH}log/map{NODEID}.zrt.log, /dev/debug, 0, 0, 0, 999999999, 999999999
+Channel = {ABS_PATH}log/map{NODEID}.zrt.log, /dev/debug, 0, 0, 0, 0, 999999999, 999999999
 Channel = {ABS_PATH}log/map{NODEID}.stdout.log, /dev/stdout, 0, 1, 0, 0, 99999999, 9999999999
 Channel = {ABS_PATH}log/map{NODEID}.stderr.log, /dev/stderr, 0, 1, 0, 0, 99999999, 9999999999
 Channel = {ABS_PATH}nvram/map{NODEID}.nvram, /dev/nvram, 0, 0, 99999, 99999, 0, 0

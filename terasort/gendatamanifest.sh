@@ -2,7 +2,6 @@
 
 SCRIPT=$(readlink -f "$0")
 SCRIPT_PATH=`dirname "$SCRIPT"`
-echo $SCRIPT_PATH 
 
 SINGLE_NODE_INPUT_RECORDS_COUNT=5000000
 
@@ -15,6 +14,9 @@ REDUCE_LAST=4
 DATA_OFFSET=0
 SEQUENTIAL_ID=1
 
+echo "Generating input data"
+
+#create manifest, nvram files for mapper
 #do relace and delete self communication map channels
 COUNTER=$MAP_FIRST
 while [  $COUNTER -le $MAP_LAST ]; do
@@ -33,7 +35,8 @@ while [  $COUNTER -le $MAP_LAST ]; do
 #gennvram
     NODEID=$COUNTER \
     ../template.sh nvram/map.nvram.template > nvram/map"$COUNTER".nvram
-#gendata
+#gendata run under host os
+    echo ./gensort -c -t4 -s -b$DATA_OFFSET -a $SINGLE_NODE_INPUT_RECORDS_COUNT data/"$COUNTER"input.txt 2> data/"$COUNTER"source.sum
     ./gensort -c -t4 -s -b$DATA_OFFSET -a $SINGLE_NODE_INPUT_RECORDS_COUNT data/"$COUNTER"input.txt 2> data/"$COUNTER"source.sum
 #increment
     let SEQUENTIAL_ID=SEQUENTIAL_ID+1
@@ -41,9 +44,10 @@ while [  $COUNTER -le $MAP_LAST ]; do
     let DATA_OFFSET=DATA_OFFSET+SINGLE_NODE_INPUT_RECORDS_COUNT
 done
 
+#create manifest, nvram files for reducer and valsort
 COUNTER=$REDUCE_FIRST
 while [  $COUNTER -le $REDUCE_LAST ]; do
-#genmanifest
+#genmanifest reducer
     NAME=reduce \
     MEMORY=4294967296 \
     TIMEOUT=500 \
@@ -53,9 +57,22 @@ while [  $COUNTER -le $REDUCE_LAST ]; do
     SEQUENTIAL_ID=$SEQUENTIAL_ID \
     ../template.sh ../manifest.template | \
     sed s@r_red"$COUNTER"-@/dev/in/@g > manifest/reduce"$COUNTER".manifest
-#gennvram
+#gennvram reducer
     NODEID=$COUNTER \
     ../template.sh nvram/reduce.nvram.template > nvram/reduce"$COUNTER".nvram
+#genmanifest valsort
+    NAME=valsort \
+    MEMORY=4294967296 \
+    TIMEOUT=100 \
+    NODEID=$COUNTER \
+    ABS_PATH=$SCRIPT_PATH \
+    CHANNELS_INCLUDE=manifest/valsort.channels.manifest.include \
+    ../template.sh ../manifest.template > manifest/valsort"$COUNTER".manifest
+#gennvram valsort
+    VERBOSITY=1 \
+    ../template.sh nvram/valsort.nvram.template | \
+    sed s@{NODES_COUNT}@$REDUCE_LAST@g  > nvram/valsort"$COUNTER".nvram
+#increment loop vars
     let SEQUENTIAL_ID=SEQUENTIAL_ID+1
     let COUNTER=COUNTER+1 
 done

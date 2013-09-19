@@ -1,0 +1,11 @@
+=======================================================================
+== Channels section intended to be used by template.sh and contains channels
+== description that must be added instead string {CHANNELS_INCLUDE} 
+== into generated manifest file based on manifest.template file
+
+Channel = {ABS_PATH}data/{NODEID}result.sum, /dev/output/sum, 0, 0, 0, 0, 9999999, 9999999999
+Channel = {ABS_PATH}data/{NODEID}sorted.dat, /dev/stdin, 0, 0, 9999999, 9999999999, 0, 0
+Channel = {ABS_PATH}log/valsort{NODEID}.stdout.log, /dev/stdout, 0, 1, 0, 0, 99999999, 9999999999
+Channel = {ABS_PATH}log/valsort{NODEID}.stderr.log, /dev/stderr, 0, 1, 0, 0, 99999999, 9999999999
+Channel = {ABS_PATH}nvram/valsort{NODEID}.nvram, /dev/nvram, 0, 0, 99999, 99999, 0, 0
+=======================================================================

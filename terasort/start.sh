@@ -1,10 +1,11 @@
 #!/bin/bash
 source ../run.env
 
-rm data/*.res -f
+rm data/*.dat -f
 rm log/* -f
 
 ZVM_REPORT=report.txt
+ZEROVM=$ZVM_PREFIX/bin/zerovm
 
 #config for mapreduce network
 MAP_FIRST=1
@@ -15,47 +16,41 @@ REDUCE_LAST=4
 #calculate number of nodes for whole cluster
 let NUMBER_OF_NODES=${MAP_LAST}+${REDUCE_LAST}
 
+echo "Start sorting job"
+
 ../ns_start.sh ${NUMBER_OF_NODES}
 
 rm ${ZVM_REPORT} -f
-time
 
 COUNTER=$MAP_FIRST
 while [  $COUNTER -le $MAP_LAST ]; do
-    echo ${SETARCH} ${ZEROVM} -Mmanifest/map$COUNTER.manifest
-    ${SETARCH} ${ZEROVM} -Mmanifest/map$COUNTER.manifest >> ${ZVM_REPORT} &
+    echo ${ZEROVM} -Mmanifest/map$COUNTER.manifest
+    ${ZEROVM} -Mmanifest/map$COUNTER.manifest >> ${ZVM_REPORT} &
     let COUNTER=COUNTER+1 
 done
 
 COUNTER=$REDUCE_FIRST
-#run reduce nodes -1 count
-while [  $COUNTER -lt $REDUCE_LAST ]; do
-    echo ${SETARCH} ${ZEROVM} -Mmanifest/reduce$COUNTER.manifest
-    ${SETARCH} ${ZEROVM} -Mmanifest/reduce$COUNTER.manifest >> ${ZVM_REPORT} &
+#run all reduce nodes
+while [  $COUNTER -le $REDUCE_LAST ]; do
+    echo ${ZEROVM} -Mmanifest/reduce$COUNTER.manifest
+    ${ZEROVM} -Mmanifest/reduce$COUNTER.manifest >> ${ZVM_REPORT} &
     let COUNTER=COUNTER+1 
 done
-
-#run last reduce node
-echo /usr/bin/time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest
-/usr/bin/time ${SETARCH} ${ZEROVM} -Mmanifest/reduce"$REDUCE_LAST".manifest >> ${ZVM_REPORT}
-
-
-../ns_stop.sh
 
 for job in `jobs -p`
 do
     wait $job
 done
 
+../ns_stop.sh
 cat ${ZVM_REPORT}
 
+echo "Start examining results"
 #test results
 rm data/temp.sum -f
 COUNTER=1
 while [  $COUNTER -le $REDUCE_LAST ]; do
-    ./valsort -t4 -o data/"$COUNTER"result.sum data/"$COUNTER"sorted.dat
-    cat data/"$COUNTER"result.sum >> data/temp.sum
+    ${ZEROVM} -Mmanifest/valsort$COUNTER.manifest
+    cat log/valsort$COUNTER.stderr.log
     let COUNTER=COUNTER+1 
 done
-#./gensort-1.5/valsort -s data/temp.sum > data/out.sum
-#diff data/in.sum data/out.sum

@@ -1,6 +1,6 @@
 /*
  *  map.c
- *  Maper node as part of wordcount implementation based on mapreduce 32/128;
+ *  Maper node as part of terasort implementation based on libmapreduce;
  *  Created on: 3.07.2012
  *      Author: YaroslavLitvinov
  */

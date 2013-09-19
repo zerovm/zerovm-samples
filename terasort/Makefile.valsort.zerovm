@@ -1,0 +1,18 @@
+include ../../Makefile.env
+# gensort and valsort Makefile for
+# zerovm single-threaded versions.
+#
+
+LDFLAGS+=-lz
+VALSORT=valsort
+
+all: $(VALSORT).nexe
+
+gensort.nexe: gensort.o rand16.o rand16.h
+	$(CC) -o gensort.nexe gensort.o rand16.o $(LDFLAGS)
+
+$(VALSORT).nexe: valsort.o rand16.o rand16.h
+	$(CC) -o $(VALSORT).nexe valsort.o rand16.o $(LDFLAGS)
+
+clean:
+	@rm -fv *.o *.nexe

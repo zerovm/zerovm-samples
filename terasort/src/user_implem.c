@@ -18,7 +18,7 @@
 #include "mapreduce/map_reduce_lib.h"
 #include "defines.h"
 #include "mapreduce/elastic_mr_item.h"
-#include "mapreduce/buffered_io.h"
+#include "helpers/buffered_io.h"
 #include "mapreduce/buffer.h"
 
 static int 
@@ -96,7 +96,7 @@ int Map(const char *data,
 }
 
 int Reduce( const Buffer *reduced_buffer ){
-    BufferedIOWrite* bio = AllocBufferedIOWrite( malloc(IO_BUF_SIZE), IO_BUF_SIZE);
+    BufferedIOWrite* bio = AllocBufferedIOWrite( malloc(IO_BUF_SIZE), IO_BUF_SIZE, NULL);
 
     /*declare buf item to use it as current loop item*/
     ElasticBufItemData* elasticdata;

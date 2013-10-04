@@ -17,7 +17,7 @@
 #include "mapreduce/map_reduce_lib.h"
 #include "defines.h"
 #include "mapreduce/elastic_mr_item.h"
-#include "mapreduce/buffered_io.h"
+#include "helpers/buffered_io.h"
 #include "mapreduce/buffer.h"
 
 /*******************************************************************************
@@ -243,7 +243,7 @@ int Combine( const Buffer *map_buffer,
 }
 
 int Reduce( const Buffer *reduced_buffer ){
-    BufferedIOWrite* bio = AllocBufferedIOWrite( malloc(IO_BUF_SIZE), IO_BUF_SIZE);
+    BufferedIOWrite* bio = AllocBufferedIOWrite( malloc(IO_BUF_SIZE), IO_BUF_SIZE, NULL);
     WRITE_FMT_LOG("bio->data.buf=%p\n", bio->data.buf);
 
 #define PRINT_POS bio->data.buf+bio->data.cursor

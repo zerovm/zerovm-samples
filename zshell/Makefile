@@ -1,15 +1,15 @@
 include ../Makefile.env
 
+NAME=zshell
+
 CFLAGS+=-std=c99 -g -DDEBUG
 
 #Add python include path
 CFLAGS+=-Izpython -Izpython/Include
-
 LDFLAGS+=-llua -lsqlite3 
-
 LDFLAGS+=-Lzpython -lpython3.2m -lm -ldl -lutil
 
-all: createdirs zshell.nexe run
+all: createdirs $(NAME).nexe run
 
 .PHONY: zpython
 
@@ -18,8 +18,8 @@ zpython:
 	cd zpython; sh 2configure_zpython.sh
 	cd zpython; sh 3build_zpython_statically.sh
 
-zshell.nexe: src/pythonexec.o src/luaexec.o src/main.o src/sqlitequery.o
-	$(CC) -o zshell.nexe src/pythonexec.o src/luaexec.o src/main.o src/sqlitequery.o $(LDFLAGS)  
+$(NAME).nexe: src/pythonexec.o src/luaexec.o src/main.o src/sqlitequery.o
+	$(CC) -o $(NAME).nexe src/pythonexec.o src/luaexec.o src/main.o src/sqlitequery.o $(LDFLAGS)  
 
 createdirs:
 	mkdir -p nvram
@@ -39,9 +39,13 @@ clean:
 	@find -name "*.log" | xargs rm -f
 	@find -name "*.manifest" | xargs rm -f
 	@find -name "*.nvram" | xargs rm -f
-	@rm -f zshell.nexe
+	@rm -f $(NAME).nexe
 
 run:
+#gen gdb script for debug purposes
+	NEXE_PATH=$(CURDIR)/$(NAME).nexe \
+	../template.sh ../debug.template > $(NAME).scp
+#run
 	./run_lua_samples.sh  
 	./run_python_samples.sh  
 	./run_sqlite_samples.sh

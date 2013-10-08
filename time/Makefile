@@ -16,6 +16,9 @@ all: $(NAME).o
 	../template.sh  ../nvram.template > $(NAME).nvram
 	$(ZEROVM) -M$(NAME).manifest
 	@cat time.stdout.log
+#gen gdb script
+	@NEXE_PATH=$(CURDIR)/$(NAME).nexe \
+	../template.sh ../debug.template > $(NAME).scp
 
 clean:
-	@rm -f $(NAME).nexe $(NAME).o *.log *.std *.manifest *.nvram
+	@rm -f $(NAME).nexe $(NAME).o *.log *.std *.manifest *.nvram *.scp

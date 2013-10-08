@@ -6,7 +6,7 @@ CFLAGS+=-g2
 all: prepare $(NAME).o
 	$(CC) -o $(NAME).nexe $(NAME).o $(LDFLAGS)
 #genmanifest
-	TIMEOUT=100 \
+	TIMEOUT=1000 \
 	ABS_PATH=$(CURDIR) \
 	NAME=$(NAME) \
 	CHANNELS_INCLUDE=channels.manifest.include \
@@ -14,11 +14,14 @@ all: prepare $(NAME).o
 #gennvram
 	VERBOSITY=2 \
 	../template.sh ../nvram.template  > $(NAME).nvram
+#	echo "[fstab]" >> $(NAME).nvram
+#	echo "channel=/dev/tar, mountpoint=/, access=ro" >> $(NAME).nvram
 #gen gdb script
 	NEXE_PATH=$(CURDIR)/$(NAME).nexe \
 	../template.sh ../debug.template > $(NAME).scp
 #launch
-	$(ZEROVM) -M$(NAME).manifest
+	rm -f /home/yarik/trace
+	$(ZEROVM) -M$(NAME).manifest -T /home/yarik/trace
 	cat $(NAME).stdout.log
 
 prepare:

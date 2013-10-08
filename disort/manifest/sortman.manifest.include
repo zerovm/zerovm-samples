@@ -7,7 +7,7 @@ Channel = /dev/null, /dev/stdin, 0, 0, 99999999, 99999999, 0, 0
 Channel = {ABS_PATH}data/crc.data, /dev/stdout, 0, 0, 0, 0, 9999, 9999
 ==Channel = {ABS_PATH}log/sortman.zrt.log, /dev/debug, 0, 0, 0, 0, 999999999, 999999999
 Channel = {ABS_PATH}log/sortman.stderr.log, /dev/stderr, 0, 0, 0, 0, 9999999, 9999999
-Channel = {ABS_PATH}nvram/sortman.nvram, /dev/nvram, 0, 0, 999999, 9999999, 0, 0
+Channel = {ABS_PATH}nvram/sortman.nvram, /dev/nvram, 1, 0, 999999, 9999999, 0, 0
 
 Channel = tcp:12:,  /dev/in/dst-1, 0, 0, 99999999, 99999999, 0, 0
 Channel = tcp:13:,  /dev/in/dst-2, 0, 0, 99999999, 99999999, 0, 0

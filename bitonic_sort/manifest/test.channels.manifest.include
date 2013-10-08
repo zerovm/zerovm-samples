@@ -7,5 +7,5 @@ Channel = {ABS_PATH}sorted.data, /dev/stdin, 0, 0, 99999999, 99999999, 0, 0
 Channel = {ABS_PATH}test.stdout.log, /dev/stdout, 0, 0, 0, 0, 99999999, 99999999
 Channel = {ABS_PATH}test.zrt.log, /dev/debug, 0, 0, 0, 0, 99999999, 99999999
 Channel = {ABS_PATH}test.stderr.log, /dev/stderr, 0, 0, 0, 0, 99999999, 99999999
-Channel = {ABS_PATH}nvram/tester.nvram, /dev/nvram, 0, 0, 99999999, 99999999, 0, 0
+Channel = {ABS_PATH}nvram/tester.nvram, /dev/nvram, 1, 0, 99999999, 99999999, 0, 0
 =======================================================================

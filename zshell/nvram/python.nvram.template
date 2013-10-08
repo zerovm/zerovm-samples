@@ -1,9 +1,12 @@
 [fstab]
 ##setup python files: mounts/python-install.tar 
-channel=/dev/mount/python-install, mountpoint=/, access=ro
+channel=/dev/mount/python-install, mountpoint=/, access=ro, warmup=yes
 
 [env]
 name=PYTHONPATH, value=/lib/python3.2
 
 [args]
 args=zshell {COMMAND_LINE}
+
+[debug]
+verbosity=2

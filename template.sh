@@ -30,6 +30,7 @@ sed s@{NODEID}@$NODEID@ | \
 sed s@{TIMEOUT}@$TIMEOUT@ | \
 sed s@{SEQUENTIAL_ID}@$SEQUENTIAL_ID@ | \
 sed s@{VERBOSITY}@$VERBOSITY@ | \
+sed s@{JOB}@$JOB@ | \
 sed s@{NEXE_PATH}@$NEXE_PATH@ | \
 sed s@{CHANNELS_INCLUDE}@@ 
 

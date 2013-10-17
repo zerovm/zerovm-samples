@@ -13,3 +13,5 @@ Channel = {DEBUG_FILE_PATH}, /dev/debug, 0, 0, 0, 0, 99999999, 99999999
 =====================================================================
 Channel = {ABS_PATH}nvram/python.nvram, /dev/nvram, 1, 0, 999999, 999999, 0, 0
 Channel = {ABS_PATH}mounts/pythonfiles/python-install.tar, /dev/mount/python-install, 1, 0, 99999999, 99999999, 0, 0
+
+==Job = {SCRIPT_FILE_PATH}.socket

@@ -47,6 +47,8 @@ int main(int argc, char **argv)
     contents = read_file_contents( FILENAME, &datalen );
     printf("after zfork\nfile:%s, contents:%s, datalen:%d\n", FILENAME, contents, datalen);fflush(0);
     assert( strcmp("remount\n", contents) == 0 );
+    printf("1\n");fflush(0);
     free(contents);
+    printf("2\n");fflush(0);
     return 0;
 }

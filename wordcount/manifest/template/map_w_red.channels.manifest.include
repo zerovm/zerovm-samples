@@ -1,0 +1,1 @@
+Channel = tcp:{PORT_COUNTER}:, w_map{NODEID}-red-{RED_COUNTER}, 0, 0, 0, 0, 99999999, 9999999999

@@ -1,17 +1,13 @@
 #!/bin/bash
 source ../run.env
+source config
 
 rm data/*.res -f
 rm log/* -f
 ./genmanifest.sh
 
+ZEROVM=${ZEROVM_ROOT}/zerovm
 ZVM_REPORT=report.txt
-
-#config for mapreduce network
-MAP_FIRST=1
-MAP_LAST=4
-REDUCE_FIRST=1
-REDUCE_LAST=5
 
 #calculate number of nodes for whole cluster
 let NUMBER_OF_NODES=${MAP_LAST}+${REDUCE_LAST}

@@ -5,6 +5,7 @@ LDFLAGS+=-lmapreduce -lnetworking
 
 all: createdirs clean map.nexe reduce.nexe
 	./genmanifest.sh
+	./mr_start.sh
 
 map.nexe: obj/map.o obj/user_implem.o
 	@$(CC) -o map.nexe obj/map.o obj/user_implem.o $(LDFLAGS)

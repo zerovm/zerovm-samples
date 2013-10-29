@@ -1,0 +1,5 @@
+#config for mapreduce network
+MAP_FIRST=1
+MAP_LAST=20
+REDUCE_FIRST=1
+REDUCE_LAST=5

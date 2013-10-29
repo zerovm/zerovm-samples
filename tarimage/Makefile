@@ -1,6 +1,7 @@
 include ../Makefile.env
 
 NAME=tarimage
+CFLAGS+=-g
 
 all: $(NAME).o
 	$(CC) -o $(NAME).nexe  $(NAME).o $(LDFLAGS)

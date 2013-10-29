@@ -8,18 +8,10 @@ Channel = {ABS_PATH}data/{NODEID}input.txt, /dev/stdin, 0, 0, 9999999, 999999999
 ==Channel = {ABS_PATH}log/map{NODEID}.zrt.log, /dev/debug, 0, 0, 0, 0, 999999999, 999999999
 Channel = {ABS_PATH}log/map{NODEID}.stdout.log, /dev/stdout, 0, 0, 0, 0, 99999999, 9999999999
 Channel = {ABS_PATH}log/map{NODEID}.stderr.log, /dev/stderr, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:5:, w_map{NODEID}-red-1, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:6:, w_map{NODEID}-red-2, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:7:, w_map{NODEID}-red-3, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:8:, w_map{NODEID}-red-4, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:9:, w_map{NODEID}-red-5, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:1:, w_map{NODEID}-map-1, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:2:, w_map{NODEID}-map-2, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:3:, w_map{NODEID}-map-3, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:4:, w_map{NODEID}-map-4, 0, 0, 0, 0, 99999999, 9999999999
-Channel = tcp:1:, r_map{NODEID}-map-1, 0, 0, 99999999, 9999999999, 0, 0
-Channel = tcp:2:, r_map{NODEID}-map-2, 0, 0, 99999999, 9999999999, 0, 0
-Channel = tcp:3:, r_map{NODEID}-map-3, 0, 0, 99999999, 9999999999, 0, 0
-Channel = tcp:4:, r_map{NODEID}-map-4, 0, 0, 99999999, 9999999999, 0, 0
+
+{MAP_W_MAP_CHANNELS}
+{MAP_R_MAP_CHANNELS}
+{MAP_W_RED_CHANNELS}
+
 Channel = {ABS_PATH}nvram/map{NODEID}.nvram, /dev/nvram, 1, 0, 9999999, 999999, 0, 0
 =======================================================================

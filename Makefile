@@ -1,4 +1,4 @@
-samples := disort hello readdir reqrep sort_paging tarimage time wordcount zshell
+samples := disort hello readdir reqrep tarimage time wordcount zshell
 samples_clean = $(patsubst %,%.clean,$(samples))
 
 .PHONY: all $(samples) $(samples_clean)

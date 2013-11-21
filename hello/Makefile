@@ -20,8 +20,7 @@ all: prepare $(NAME).o
 	NEXE_PATH=$(CURDIR)/$(NAME).nexe \
 	../template.sh ../debug.template > $(NAME).scp
 #launch
-	rm -f /home/yarik/trace
-	$(ZEROVM) -M$(NAME).manifest -T /home/yarik/trace
+	$(ZEROVM) -M$(NAME).manifest
 	cat $(NAME).stdout.log
 
 prepare:

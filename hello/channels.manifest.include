@@ -9,5 +9,5 @@ Channel = {ABS_PATH}{NAME}.stderr.log, /dev/stderr, 0, 0, 0, 0, 999999, 999999
 ==Channel = {ABS_PATH}{NAME}.zrtdebug.log, /dev/debug, 0, 0, 0, 0, 9999999, 9999999
 Channel = {ABS_PATH}{NAME}.null, /dev/test/output, 0, 0, 0, 0, 999999, 999999
 Channel = {ABS_PATH}{NAME}.nvram, /dev/nvram, 1, 0, 999999, 999999, 0, 0
-Channel = {ABS_PATH}{NAME}.tar, /dev/tar, 0, 0, 999999, 999999, 0, 0
+== Channel = {ABS_PATH}{NAME}.tar, /dev/tar, 0, 0, 999999, 999999, 0, 0
 =======================================================================

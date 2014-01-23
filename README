@@ -1,38 +1,48 @@
+# ZeroVM Sample
 
---------------------------------------------
-Samples
---------------------------------------------
-{DOCPATH}
+A set of samples demonstrating usage and building of the ZeroVM runtime.
 
-Folowing samples demonstrates of usage and building for ZRT:
-1.samples/tarimage - Nvram usage demo. User specifying tarball archive
-and using nvram mechanism image contents are injecting into user file
-system and listing it by readdir;
-2.samples/zshell - run lua scripts and sql queries via single zerovm
-executable and various manifest files. also available python
-scripting;
-3.samples/wordcount - distributed application that uses mapreduce and
-networking libraries. It calculates count of words in provided input
-files; One file per one map node using by design; 3.samples/disort -
-distributed sort, 3 kind of applications source,destination, manager
-that interacts as nodes, and implements networking communication;
-Local sort uses high performance bitonic sort for sse41 instructions
-set, or qsort from c std library for another cpu instructions
+## Instructions
+
+Set `ZVM_PREFIX` to wherever ZeroVM was installed. For example, if ZeroVM
+was installed to `/usr/bin/zerovm` run the following:  `ZVM_PREFIX=/usr make`.
+
+## Samples
+
+* `disort` - An example of distributed sort using 3 kind of application sources,
+destination, manager that interacts as nodes, and implements networking
+communication. Local sort uses high performance bitonic sort for sse41
+instructions set, or qsort from c std library for another cpu instructions
 set. Currently network organized by 10 source, 10 destination and one
 manager nodes. Count of nodes and amount of sorting data are possible
 to config. Source data generates by generator application, and should
-be run separatedly from sorting job;
-4.samples/reqrep - this example uses network facility, it's emulate
-simple network, where two nodes is communicating one to one. Can work
-in two modes. mode 1 - Single node sending N MB and recevies the same
-from another node. mode 2- one node sends and another node receives
-data in cycle;
-5.samples/hello - simple example how to write a program for zerovm.
-6.samples/sort_paging - high performance sort contains 3 programs
-which allows to create random data, sort it and test sort order. from
-this example you can see how to use intrinsics under zerovm -
-absolutely same as usual. also this is another example of pagination
-mechanism usage. Doing check for sse41.
-7.samples/time - via zerovm api user program can get date/time
-specified in environment variable"TimeStamp". If there is no such env
-var then user program will get -1 (1969-12-31 time = 23:59:59 UTC)
+be run separately from sorting job.
+
+* `hello` - A imple example demonstrating how to write a program for ZeroVM.
+
+* `reqrep` - This example uses a network facility. It emulates a
+simple network, where two nodes are communicating one to one. It can work
+in two modes: Mode 1 - Single node sending N MB and receives the same
+from another node. Mode 2 - one node sends and another node receives
+data in cycle.
+
+* `sort_paging` - High performance sort contains 3 programs which create
+random data, sort it and test sort order. From this example you can see
+how to use intrinsics under ZeroVM. Also this is another example of pagination
+mechanism. Does check for sse41.
+
+* `tarimage` - Nvram usage demo. User specified tarball archive
+and using nvram mechanism image contents are injected into user file
+system and listing it by `readdir`.
+
+* `time` - Via the ZeroVM API user program can get date/time
+specified in environment variable `TmeStamp`. If there is no such env
+var then user program will get `-1 (1969-12-31 time = 23:59:59 UTC)`.
+
+* `wordcount` - Distributed application that uses map/reduce and
+networking libraries. It calculates count of words in provided input
+files; One file per one map node is setup by design.
+
+* `zshell` - Run lua scripts and sql queries via single ZeroVM
+executable and various manifest files. Python scripting is also
+available.

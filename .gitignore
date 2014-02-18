@@ -14,3 +14,4 @@ tarimage/stderr.data
 tarimage/stdout.data
 tarimage/zrtdebug.data
 wordcount/report.txt
+wordcount/data/*.res

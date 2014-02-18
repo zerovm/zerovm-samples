@@ -18,7 +18,7 @@ manager nodes. Count of nodes and amount of sorting data are possible
 to config. Source data generates by generator application, and should
 be run separately from sorting job.
 
-* `hello` - A imple example demonstrating how to write a program for ZeroVM.
+* `hello` - A simple example demonstrating how to write a program for ZeroVM.
 
 * `reqrep` - This example uses a network facility. It emulates a
 simple network, where two nodes are communicating one to one. It can work

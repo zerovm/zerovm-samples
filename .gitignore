@@ -6,3 +6,12 @@
 *.a
 *.log
 *.manifest
+
+*.nvram
+*.null
+tarimage/mounts/exported.tar
+tarimage/stderr.data
+tarimage/stdout.data
+tarimage/zrtdebug.data
+wordcount/report.txt
+wordcount/data/*.res

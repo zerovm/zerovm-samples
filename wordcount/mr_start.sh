@@ -6,7 +6,12 @@ rm data/*.res -f
 rm log/* -f
 ./genmanifest.sh
 
-ZEROVM=${ZEROVM_ROOT}/zerovm
+if [ -z ${ZEROVM_ROOT} ]; then
+  ZEROVM=`which zerovm`
+else
+  ZEROVM=${ZEROVM_ROOT}/zerovm
+fi
+
 ZVM_REPORT=report.txt
 
 #calculate number of nodes for whole cluster
